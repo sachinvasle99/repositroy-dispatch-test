@@ -12,6 +12,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const result = await github.rest.repos.createDispatchEvent({
+            owner: 'sachinvasle99',
             repo: 'github-actions',
             event_type: 'bcd_release',
             client_payload: {"version": "v5.3.10"}
