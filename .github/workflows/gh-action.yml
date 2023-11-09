@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/github-script@v6
       with:
-        github-token: ${{ secrets.DISPATCH_PAT }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const result = await github.rest.repos.createDispatchEvent({
             repo: 'github-actions',
