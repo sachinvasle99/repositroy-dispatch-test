@@ -1,0 +1,20 @@
+name: Release BCD
+
+# I am triggering this manually so using 'workflow_dispatch'
+on: [push]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.DISPATCH_PAT }}
+        script: |
+          const result = await github.rest.repos.createDispatchEvent({
+            owner: 'my-org',
+            repo: 'target-repo',
+            event_type: 'bcd_release',
+            client_payload: {"version": "v5.3.10"}
+          })
+          console.log(result);
