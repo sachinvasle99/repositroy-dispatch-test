@@ -9,11 +9,11 @@ jobs:
     steps:
     - uses: actions/github-script@v6
       with:
-        github-token: ${{ secrets.DISPATCH_PAT }}
+        # github-token: ${{ secrets.DISPATCH_PAT }}
         script: |
           const result = await github.rest.repos.createDispatchEvent({
-            owner: 'my-org',
-            repo: 'target-repo',
+            owner: 'sachinvasle99',
+            repo: 'github-actions',
             event_type: 'bcd_release',
             client_payload: {"version": "v5.3.10"}
           })
